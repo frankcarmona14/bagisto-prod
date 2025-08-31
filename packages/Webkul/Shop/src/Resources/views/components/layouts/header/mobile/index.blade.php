@@ -18,19 +18,22 @@
             <v-mobile-drawer></v-mobile-drawer>
 
             {!! view_render_event('bagisto.shop.components.layouts.header.mobile.drawer.after') !!}
+        </div>
 
+        <!-- Center Navigation -->
+        <div class="flex items-center justify-center">
             {!! view_render_event('bagisto.shop.components.layouts.header.mobile.logo.before') !!}
 
             <a
                 href="{{ route('shop.home.index') }}"
-                class="max-h-[30px]"
+                class="flex items-center justify-center max-h-[30px]"
                 aria-label="@lang('shop::app.components.layouts.header.mobile.bagisto')"
             >
                 <img
                     src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
                     alt="{{ config('app.name') }}"
-                    width="131"
-                    height="29"
+                    width="100"
+                    height="20"
                 >
             </a>
 
@@ -72,7 +75,7 @@
                         @guest('customer')
                             <x-slot:content>
                                 <div class="grid gap-2.5">
-                                    <p class="font-dmserif text-xl">
+                                    <p class="text-xl">
                                         @lang('shop::app.components.layouts.header.mobile.welcome-guest')
                                     </p>
 
@@ -113,7 +116,7 @@
                         @auth('customer')
                             <x-slot:content class="!p-0">
                                 <div class="grid gap-2.5 p-5 pb-0">
-                                    <p class="font-dmserif text-xl">
+                                    <p class="text-xl">
                                         @lang('shop::app.components.layouts.header.mobile.welcome')’
                                         {{ auth()->guard('customer')->user()->first_name }}
                                     </p>

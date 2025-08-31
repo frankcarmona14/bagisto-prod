@@ -138,7 +138,7 @@
                 text-align: center;
                 font-size: 24px;
                 text-transform: uppercase;
-                color: #000DBB;
+                color: #D76868;
                 padding: 24px 0;
                 margin: 0;
             }
@@ -177,7 +177,7 @@
 
             table thead th {
                 background-color: #E9EFFC;
-                color: #000DBB;
+                color: #D76868;
                 padding: 6px 18px;
                 text-align: left;
             }
