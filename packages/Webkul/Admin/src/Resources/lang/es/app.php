@@ -170,7 +170,7 @@ return [
             ],
 
             'create' => [
-                'add-to-cart'             => 'Agregar al carrito',
+                'add-to-cart'             => 'Añadir al carrito',
                 'back-btn'                => 'Volver',
                 'check-billing-address'   => 'Falta la dirección de facturación.',
                 'check-shipping-address'  => 'Falta la dirección de envío.',
@@ -237,7 +237,7 @@ return [
                         'title'             => 'Elementos del carrito',
 
                         'search' => [
-                            'add-to-cart'   => 'Agregar al carrito',
+                            'add-to-cart'   => 'Añadir al carrito',
                             'available-qty' => ':qty disponible',
                             'empty-info'    => 'No hay productos disponibles para el término de búsqueda.',
                             'empty-title'   => 'No se encontraron productos',
@@ -305,7 +305,7 @@ return [
                 ],
 
                 'cart-items' => [
-                    'add-to-cart'       => 'Agregar al carrito',
+                    'add-to-cart'       => 'Añadir al carrito',
                     'delete'            => 'Eliminar',
                     'empty-description' => 'No se encontraron elementos en tu carrito.',
                     'empty-title'       => 'Carrito vacío',
@@ -316,7 +316,7 @@ return [
                 ],
 
                 'recent-order-items' => [
-                    'add-to-cart'       => 'Agregar al carrito',
+                    'add-to-cart'       => 'Añadir al carrito',
                     'empty-description' => 'No se encontraron elementos en tus pedidos recientes.',
                     'empty-title'       => 'Pedidos vacíos',
                     'see-details'       => 'Ver detalles',
@@ -326,7 +326,7 @@ return [
                 ],
 
                 'wishlist-items' => [
-                    'add-to-cart'       => 'Agregar al carrito',
+                    'add-to-cart'       => 'Añadir al carrito',
                     'delete'            => 'Eliminar',
                     'empty-description' => 'No se encontraron elementos en tu lista de deseos.',
                     'empty-title'       => 'Elementos de la lista de deseos vacíos',
@@ -336,7 +336,7 @@ return [
                 ],
 
                 'compare-items' => [
-                    'add-to-cart'       => 'Agregar al carrito',
+                    'add-to-cart'       => 'Añadir al carrito',
                     'delete'            => 'Eliminar',
                     'empty-description' => 'No se encontraron elementos en tu lista de comparación.',
                     'empty-title'       => 'Elementos de comparación vacíos',
@@ -4697,7 +4697,7 @@ return [
             ],
 
             'powered-by' => [
-                'description' => 'Desarrollado por :bagisto, un proyecto de código abierto de :webkul.',
+                'description' => '',
             ],
         ],
 
