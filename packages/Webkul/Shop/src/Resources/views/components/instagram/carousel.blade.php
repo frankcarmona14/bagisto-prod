@@ -43,14 +43,19 @@
                         :href="item.url"
                         target="_blank"
                         rel="noopener"
-                        class="absolute w-full h-full top-0 left-0 bg-black/0 hover:bg-black/70 transition-opacity duration-300"
+                        class="group absolute w-full h-full top-0 left-0 bg-black/0 hover:bg-black/70 transition-opacity duration-300"
                         aria-label="Ver en Instagram"
                     >
-                        <span
-                            class="icon-instagram absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-3xl"
-                            role="img"
+                        <svg
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 text-white fill-current opacity-0 group-hover:opacity-100 transition-opacity duration-600"
+                            viewBox="0 0 24 24"
                             aria-hidden="true"
-                        ></span>
+                            focusable="false"
+                        >
+                            <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3z"/>
+                            <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+                            <circle cx="17.5" cy="6.5" r="1.5"/>
+                        </svg>
                     </a>
                 </div>
             </div>
