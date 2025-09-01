@@ -9,7 +9,7 @@
 @endphp
 
 <div class="flex flex-wrap gap-4 px-4 pb-4 pt-6 shadow-sm lg:hidden">
-    <div class="flex w-full items-center justify-between">
+    <div class="relative flex w-full items-center justify-between">
         <!-- Left Navigation -->
         <div class="flex items-center gap-x-1.5">
             {!! view_render_event('bagisto.shop.components.layouts.header.mobile.drawer.before') !!}
@@ -21,7 +21,7 @@
         </div>
 
         <!-- Center Navigation -->
-        <div class="flex items-center justify-center">
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
             {!! view_render_event('bagisto.shop.components.layouts.header.mobile.logo.before') !!}
 
             <a
