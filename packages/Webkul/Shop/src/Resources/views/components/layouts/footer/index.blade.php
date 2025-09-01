@@ -21,13 +21,13 @@
     ]);
 @endphp
 
-<footer class="mt-9 bg-lightOrange max-sm:mt-10">
+<footer class="mt-9 bg-lightRose max-sm:mt-10">
     <div class="flex justify-between gap-x-6 gap-y-8 p-[60px] max-1060:flex-col-reverse max-md:gap-5 max-md:p-8 max-sm:px-4 max-sm:py-5">
         <!-- For Desktop View -->
         <div class="flex flex-wrap items-start gap-24 max-1180:gap-6 max-1060:hidden">
             @if ($customization?->options)
                 @foreach ($customization->options as $footerLinkSection)
-                    <ul class="grid gap-5 text-sm">
+                    <ul class="grid gap-5 text-brandNavy text-sm">
                         @php
                             usort($footerLinkSection, function ($a, $b) {
                                 return $a['sort_order'] - $b['sort_order'];
@@ -105,19 +105,19 @@
                         <div class="relative w-full">
                             <x-shop::form.control-group.control
                                 type="email"
-                                class="block w-[420px] max-w-full rounded-xl border-2 border-[#e9decc] bg-[#F1EADF] px-5 py-4 text-base max-1060:w-full max-md:p-3.5 max-sm:mb-0 max-sm:rounded-lg max-sm:border-2 max-sm:p-2 max-sm:text-sm"
+                                class="block w-[420px] max-w-full rounded-xl border-2 border-[#fca3ae] bg-white text-brandNavy px-5 py-4 text-base max-1060:w-full max-md:p-3.5 max-sm:mb-0 max-sm:rounded-lg max-sm:border-2 max-sm:p-2 max-sm:text-sm"
                                 name="email"
                                 rules="required|email"
                                 label="Email"
                                 :aria-label="trans('shop::app.components.layouts.footer.email')"
-                                placeholder="email@example.com"
+                                placeholder="ejemplo@gmail.com"
                             />
     
                             <x-shop::form.control-group.error control-name="email" />
     
                             <button
                                 type="submit"
-                                class="absolute top-1.5 flex w-max items-center rounded-xl bg-white px-7 py-2.5 font-medium hover:bg-zinc-100 max-md:top-1 max-md:px-5 max-md:text-xs max-sm:mt-0 max-sm:rounded-lg max-sm:px-4 max-sm:py-2 ltr:right-2 rtl:left-2"
+                                class="absolute top-1.5 flex w-max items-center rounded-xl bg-white text-brandNavy px-7 py-2.5 font-medium hover:bg-zinc-100 max-md:top-1 max-md:px-5 max-md:text-xs max-sm:mt-0 max-sm:rounded-lg max-sm:px-4 max-sm:py-2 ltr:right-2 rtl:left-2"
                             >
                                 @lang('shop::app.components.layouts.footer.subscribe')
                             </button>
@@ -130,10 +130,10 @@
         {!! view_render_event('bagisto.shop.layout.footer.newsletter_subscription.after') !!}
     </div>
 
-    <div class="flex justify-between bg-[#F1EADF] px-[60px] py-3.5 max-md:justify-center max-sm:px-5">
+    <div class="flex justify-between bg-[#fca3ae] px-[60px] py-3.5 max-md:justify-center max-sm:px-5">
         {!! view_render_event('bagisto.shop.layout.footer.footer_text.before') !!}
 
-        <p class="text-sm text-zinc-600 max-md:text-center">
+        <p class="text-sm text-white max-md:text-center">
             @lang('shop::app.components.layouts.footer.footer-text', ['current_year'=> date('Y') ])
         </p>
 
