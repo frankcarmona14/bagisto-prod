@@ -23,6 +23,55 @@
 
 <footer class="mt-9 bg-lightRose max-sm:mt-10">
     <div class="flex justify-between gap-x-6 gap-y-8 p-[60px] max-1060:flex-col-reverse max-md:gap-5 max-md:p-8 max-sm:px-4 max-sm:py-5">
+        {{-- Logo and information --}}
+        <div class="grid gap-2.5 text-center">
+            <a
+                href="{{ route('shop.home.index') }}"
+                aria-label="@lang('shop::app.components.layouts.footer.bagisto')"
+                class="flex justify-center m-auto"
+            >
+                <img
+                    src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
+                    width="192"
+                    height="50"
+                    alt="{{ config('app.name') }}"
+                >
+            </a>
+
+            <p>
+                Cosméticos de calidad profesional para una belleza única
+            </p>
+            <p class="flex items-center justify-center gap-2">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    class="h-5 w-5"
+                    aria-hidden="true"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.5-7.5 10.5-7.5 10.5S4.5 18 4.5 10.5a7.5 7.5 0 1 1 15 0z" />
+                </svg>
+                <span>Villa del Rosario, Norte de Santander, Colombia</span>
+            </p>
+            <p class="flex items-center justify-center gap-2">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    class="h-5 w-5"
+                    aria-hidden="true"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a1.5 1.5 0 0 0 1.5-1.5v-2.25a1.5 1.5 0 0 0-1.284-1.482l-3.432-.572a1.5 1.5 0 0 0-1.149.297l-1.56 1.17a12 12 0 0 1-5.505-5.505l1.17-1.56a1.5 1.5 0 0 0 .297-1.149l-.572-3.432A1.5 1.5 0 0 0 5.25 3.75H3a1.5 1.5 0 0 0-1.5 1.5v1.5z" />
+                </svg>
+                <span>323-6908719</span>
+            </p>
+        </div>
+
         <!-- For Desktop View -->
         <div class="flex flex-wrap items-start gap-24 max-1180:gap-6 max-1060:hidden">
             @if ($customization?->options)
@@ -49,16 +98,16 @@
         <!-- For Mobile view -->
         <x-shop::accordion
             :is-active="false"
-            class="hidden !w-full rounded-xl !border-2 !border-[#e9decc] max-1060:block max-sm:rounded-lg"
+            class="hidden !w-full rounded-xl !border-2 !border-[#fca3ae] text-brandNavy max-1060:block max-sm:rounded-lg"
         >
-            <x-slot:header class="rounded-t-lg bg-[#F1EADF] font-medium max-md:p-2.5 max-sm:px-3 max-sm:py-2 max-sm:text-sm">
+            <x-slot:header class="rounded-t-lg bg-lightRose font-medium max-md:p-2.5 max-sm:px-3 max-sm:py-2 max-sm:text-sm">
                 @lang('shop::app.components.layouts.footer.footer-content')
             </x-slot>
 
             <x-slot:content class="flex justify-between !bg-transparent !p-4">
                 @if ($customization?->options)
                     @foreach ($customization->options as $footerLinkSection)
-                        <ul class="grid gap-5 text-sm">
+                        <ul class="grid gap-5 text-sm text-brandNavy">
                             @php
                                 usort($footerLinkSection, function ($a, $b) {
                                     return $a['sort_order'] - $b['sort_order'];
@@ -117,7 +166,7 @@
     
                             <button
                                 type="submit"
-                                class="absolute top-1.5 flex w-max items-center rounded-xl bg-white text-brandNavy px-7 py-2.5 font-medium hover:bg-zinc-100 max-md:top-1 max-md:px-5 max-md:text-xs max-sm:mt-0 max-sm:rounded-lg max-sm:px-4 max-sm:py-2 ltr:right-2 rtl:left-2"
+                                class="absolute top-1.5 flex w-max items-center rounded-xl bg-white text-navyBlue px-7 py-2.5 font-medium hover:bg-zinc-100 max-md:top-1 max-md:px-5 max-md:text-xs max-sm:mt-0 max-sm:rounded-lg max-sm:px-4 max-sm:py-2 ltr:right-2 rtl:left-2"
                             >
                                 @lang('shop::app.components.layouts.footer.subscribe')
                             </button>

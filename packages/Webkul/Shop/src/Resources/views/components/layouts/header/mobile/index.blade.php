@@ -68,7 +68,7 @@
                 <div class="max-md:hidden">
                     <x-shop::dropdown position="bottom-{{ core()->getCurrentLocale()->direction === 'ltr' ? 'right' : 'left' }}">
                         <x-slot:toggle>
-                            <span class="icon-users cursor-pointer text-2xl"></span>
+                            <span class="icon-users cursor-pointer text-2xl text-navyBlue"></span>
                         </x-slot>
 
                         <!-- Guest Dropdown -->
@@ -185,7 +185,7 @@
                             href="{{ route('shop.customer.session.create') }}"
                             aria-label="@lang('shop::app.components.layouts.header.mobile.account')"
                         >
-                            <span class="icon-users cursor-pointer text-2xl"></span>
+                            <span class="icon-users cursor-pointer text-2xl text-navyBlue"></span>
                         </a>
                     @endguest
 
@@ -195,7 +195,7 @@
                             href="{{ route('shop.customers.account.index') }}"
                             aria-label="@lang('shop::app.components.layouts.header.mobile.account')"
                         >
-                            <span class="icon-users cursor-pointer text-2xl"></span>
+                            <span class="icon-users cursor-pointer text-2xl text-navyBlue"></span>
                         </a>
                     @endauth
                 </div>
@@ -215,7 +215,7 @@
         </label>
 
         <div class="relative w-full">
-            <div class="icon-search pointer-events-none absolute top-3 flex items-center text-2xl max-md:text-xl max-sm:top-2.5 ltr:left-3 rtl:right-3"></div>
+            <div class="icon-search pointer-events-none absolute top-3 flex items-center text-2xl text-navyBlue max-md:text-xl max-sm:top-2.5 ltr:left-3 rtl:right-3"></div>
 
             <input
                 type="text"
@@ -243,7 +243,7 @@
             @close="onDrawerClose"
         >
             <x-slot:toggle>
-                <span class="icon-hamburger cursor-pointer text-2xl"></span>
+                <span class="icon-hamburger text-navyBlue cursor-pointer text-2xl"></span>
             </x-slot>
 
             <x-slot:header>
@@ -414,8 +414,8 @@
                             :key="category.id"
                             :class="{'mb-2': category.children && category.children.length}"
                         >
-                            <div class="flex cursor-pointer items-center justify-between py-2 transition-colors duration-200">
-                                <a :href="category.url" class="text-base font-medium text-black">
+                            <div class="flex cursor-pointer items-center justify-between p-2 hover:bg-lightRose rounded-lg transition-colors duration-200">
+                                <a :href="category.url" class="text-base text-navyBlue font-medium text-black">
                                     @{{ category.name }}
                                 </a>
                             </div>
@@ -427,10 +427,10 @@
                                     :key="secondLevelCategory.id"
                                 >
                                     <div
-                                        class="flex cursor-pointer items-center justify-between py-2 transition-colors duration-200"
+                                        class="flex cursor-pointer items-center justify-between ml-3 p-2 hover:bg-lightRose rounded-lg transition-colors duration-200"
                                         @click="showThirdLevel(secondLevelCategory, category, $event)"
                                     >
-                                        <a :href="secondLevelCategory.url" class="text-sm font-normal">
+                                        <a :href="secondLevelCategory.url" class="text-sm text-navyBlueMedium font-normal">
                                             @{{ secondLevelCategory.name }}
                                         </a>
 

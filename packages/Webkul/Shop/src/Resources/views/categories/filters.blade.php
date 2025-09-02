@@ -182,7 +182,7 @@
                         v-if="filter.type !== 'boolean'"
                     >
                         <div class="relative">
-                            <div class="icon-search pointer-events-none absolute top-3 flex items-center text-2xl max-md:text-xl max-sm:top-2.5 ltr:left-3 rtl:right-3"></div>
+                            <div class="icon-search pointer-events-none absolute top-3 flex items-center text-2xl text-navyBlue max-md:text-xl max-sm:top-2.5 ltr:left-3 rtl:right-3"></div>
 
                             <input
                                 type="text"
