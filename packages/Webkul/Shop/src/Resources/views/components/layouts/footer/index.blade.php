@@ -41,7 +41,7 @@
             <p>
                 Cosméticos de calidad profesional para una belleza única
             </p>
-            <p class="flex items-center justify-center gap-2">
+            <p class="flex wrap justify-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -56,7 +56,7 @@
                 </svg>
                 <span>Villa del Rosario, Norte de Santander, Colombia</span>
             </p>
-            <p class="flex items-center justify-center gap-2">
+            <p class="flex wrap justify-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
