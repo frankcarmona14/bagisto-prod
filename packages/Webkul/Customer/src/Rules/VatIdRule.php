@@ -27,6 +27,8 @@ class VatIdRule implements ValidationRule
     {
         $validator = new VatValidator;
 
+        \Illuminate\Support\Facades\Log::info("pais: " . $this->country);
+
         if (! empty($value) && ! $validator->validate($value, $this->country)) {
             $fail('customer::app.validations.vat-id.invalid-format')->translate();
         }

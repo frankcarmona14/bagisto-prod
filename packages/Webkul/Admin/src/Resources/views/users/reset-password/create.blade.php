@@ -9,7 +9,7 @@
             <!-- Logo -->
             @if ($logo = core()->getConfigData('general.design.admin_logo.logo_image'))
                 <img
-                    class="h-10 w-[110px]"
+                    class="w-[110px]"
                     src="{{ Storage::url($logo) }}"
                     alt="{{ config('app.name') }}"
                 />
@@ -113,14 +113,6 @@
                         </button>
                     </div>
                 </x-admin::form>
-            </div>
-
-            <!-- Powered By -->
-            <div class="text-sm font-normal">
-                @lang('admin::app.users.reset-password.powered-by-description', [
-                    'bagisto' => '<a class="text-blue-600 hover:underline" href="https://bagisto.com/en/">Bagisto</a>',
-                    'webkul' => '<a class="text-blue-600 hover:underline" href="https://webkul.com/">Webkul</a>',
-                ])
             </div>
         </div>
     </div>

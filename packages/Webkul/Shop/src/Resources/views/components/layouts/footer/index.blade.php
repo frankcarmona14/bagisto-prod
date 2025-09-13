@@ -19,6 +19,9 @@
         'theme_code' => $channel->theme,
         'channel_id' => $channel->id,
     ]);
+
+    $whatsAppPhone   = config('whatsapp.phone');
+    $whatsAppMessage = config('whatsapp.message');
 @endphp
 
 <footer class="mt-9 bg-lightRose max-sm:mt-10">
@@ -56,19 +59,27 @@
                 </svg>
                 <span>Villa del Rosario, Norte de Santander, Colombia</span>
             </p>
-            <p class="flex wrap justify-center">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    class="h-5 w-5"
-                    aria-hidden="true"
+            <p class="flex justify-center">
+                <a
+                    href="https://wa.me/{{ $whatsAppPhone }}?text={{ rawurlencode($whatsAppMessage) }}"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-start gap-1"
+                    aria-label="WhatsApp"
                 >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a1.5 1.5 0 0 0 1.5-1.5v-2.25a1.5 1.5 0 0 0-1.284-1.482l-3.432-.572a1.5 1.5 0 0 0-1.149.297l-1.56 1.17a12 12 0 0 1-5.505-5.505l1.17-1.56a1.5 1.5 0 0 0 .297-1.149l-.572-3.432A1.5 1.5 0 0 0 5.25 3.75H3a1.5 1.5 0 0 0-1.5 1.5v1.5z" />
-                </svg>
-                <span>323-6908719</span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        class="h-5 w-5"
+                        aria-hidden="true"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a1.5 1.5 0 0 0 1.5-1.5v-2.25a1.5 1.5 0 0 0-1.284-1.482l-3.432-.572a1.5 1.5 0 0 0-1.149.297l-1.56 1.17a12 12 0 0 1-5.505-5.505l1.17-1.56a1.5 1.5 0 0 0 .297-1.149l-.572-3.432A1.5 1.5 0 0 0 5.25 3.75H3a1.5 1.5 0 0 0-1.5 1.5v1.5z" />
+                    </svg>
+                    <span>323-6908719</span>
+                </a>
             </p>
         </div>
 

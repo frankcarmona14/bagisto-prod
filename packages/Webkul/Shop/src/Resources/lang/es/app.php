@@ -144,10 +144,10 @@ return [
                     'save'           => 'Guardar',
                     'select-country' => 'Seleccionar País',
                     'set-as-default' => 'Establecer como Predeterminada',
-                    'state'          => 'Estado',
+                    'state'          => 'Departamento',
                     'street-address' => 'Dirección',
                     'title'          => 'Dirección',
-                    'vat-id'         => 'ID de IVA',
+                    'vat-id'         => 'Cédula de Ciudadanía',
                 ],
 
                 'edit' => [
@@ -161,11 +161,11 @@ return [
                     'phone'          => 'Teléfono',
                     'post-code'      => 'Código Postal',
                     'select-country' => 'Seleccionar País',
-                    'state'          => 'Estado',
+                    'state'          => 'Departamento',
                     'street-address' => 'Dirección',
                     'title'          => 'Dirección',
                     'update-btn'     => 'Actualizar',
-                    'vat-id'         => 'ID de IVA',
+                    'vat-id'         => 'Cédula de Ciudadanía',
                 ],
             ],
 
@@ -181,7 +181,7 @@ return [
                 'total'       => 'Total',
 
                 'status' => [
-                    'title' => 'Estado',
+                    'title' => 'Departamento',
 
                     'options' => [
                         'canceled'        => 'Cancelado',
@@ -443,9 +443,9 @@ return [
                         'last-name'  => 'Apellido',
                         'phone'      => 'Teléfono',
                         'postcode'   => 'Código postal',
-                        'state'      => 'Estado',
+                        'state'      => 'Departamento',
                         'title'      => 'Información de la dirección',
-                        'vat-id'     => 'ID de IVA',
+                        'vat-id'     => 'Cédula de Ciudadanía',
                     ],
 
                     'order-info' => [
@@ -996,8 +996,8 @@ return [
                     'info'           => 'Ingrese su destino para obtener una estimación de envío e impuestos.',
                     'postcode'       => 'Código Postal',
                     'select-country' => 'Seleccionar País',
-                    'select-state'   => 'Seleccionar Estado',
-                    'state'          => 'Estado',
+                    'select-state'   => 'Seleccionar Departamento',
+                    'state'          => 'Departamento',
                     'title'          => 'Calcular Envío y Impuestos',
                 ],
             ],
@@ -1024,13 +1024,13 @@ return [
                 'save'                   => 'Guardar',
                 'save-address'           => 'Guardar en la libreta de direcciones',
                 'select-country'         => 'Seleccionar país',
-                'select-state'           => 'Seleccionar estado',
+                'select-state'           => 'Seleccionar Departamento',
                 'shipping-address'       => 'Dirección de envío',
-                'state'                  => 'Estado',
+                'state'                  => 'Departamento',
                 'street-address'         => 'Dirección',
                 'telephone'              => 'Teléfono',
                 'title'                  => 'Dirección',
-                'vat-id'                 => 'ID de IVA',
+                'vat-id'                 => 'Cédula de Ciudadanía',
             ],
 
             'index' => [

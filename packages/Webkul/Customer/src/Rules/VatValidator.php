@@ -2,8 +2,7 @@
 
 namespace Webkul\Customer\Rules;
 
-class VatValidator
-{
+class VatValidator {
     /**
      * Regular expression patterns per country code.
      *
@@ -16,6 +15,7 @@ class VatValidator
         'AE' => '\d{15}',
         'BE' => '(0\d{9}|\d{10})',
         'BG' => '\d{9,10}',
+        'CO' => '(\d{8}|\d{9}|\d{10})',
         'CY' => '\d{8}[A-Z]',
         'CZ' => '\d{8,10}',
         'DE' => '\d{9}',
@@ -50,8 +50,7 @@ class VatValidator
      *
      * @param  ?string  $formCountry  country code from the input form - used as backup if the VAT number does not contain a country code
      */
-    public function validate(string $vatNumber, ?string $formCountry = null): bool
-    {
+    public function validate(string $vatNumber, ?string $formCountry = null): bool {
         $vatNumber = $this->vatCleaner($vatNumber);
 
         [$country, $number] = $this->splitVat($vatNumber);
@@ -65,14 +64,13 @@ class VatValidator
             $number = $vatNumber;
         }
 
-        return preg_match('/^'.self::$pattern_expression[$country].'$/', $number) > 0;
+        return preg_match('/^' . self::$pattern_expression[$country] . '$/', $number) > 0;
     }
 
     /**
      * Vat number cleaner.
      */
-    private function vatCleaner(string $vatNumber): string
-    {
+    private function vatCleaner(string $vatNumber): string {
         $vatNumberClean = preg_replace('/[^A-Z0-9]/i', '', $vatNumber);
 
         return strtoupper($vatNumberClean);
@@ -81,8 +79,7 @@ class VatValidator
     /**
      * Split the VAT number into country code and number.
      */
-    private function splitVat(string $vatNumber): array
-    {
+    private function splitVat(string $vatNumber): array {
         return [
             substr($vatNumber, 0, 2),
             substr($vatNumber, 2),

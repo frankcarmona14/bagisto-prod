@@ -1,5 +1,67 @@
 @props(['items' => []])
 
+@php
+    try {
+        $token = env('INSTAGRAM_TOKEN');
+        $id    = env('INSTAGRAM_ID');
+        $url   = env('INSTAGRAM_URL', "https://graph.instagram.com/{$id}/media");
+        if ($token && $id) {
+            $response = Http::timeout(6)
+            ->withOptions(['verify' => false])
+            ->get($url, [
+                'access_token' => $token,
+                'fields'       => 'id,media_type,media_url,permalink,thumbnail_url,caption',
+                'limit'        => 48
+            ]);
+            if ($response->ok()) {
+                $payload = $response->json();
+                $medias  = $payload['data'] ?? [];
+                $items = array_values(array_filter(array_map(function ($media) {
+                    $mediaType = strtolower($media['media_type'] ?? 'image');
+                    $type      = $mediaType === 'video' ? 'video' : 'image';
+                    $src       = $media['media_url'] ?? ($media['thumbnail_url'] ?? null);
+                    if (empty($src)) {
+                        return null;
+                    }
+                    $caption = $media['caption'] ?? 'Instagram';
+                    if (function_exists('mb_strimwidth')) {
+                        $caption = mb_strimwidth($caption, 0, 120, '…', 'UTF-8');
+                    }
+                    return [
+                        'type' => $type,
+                        'src'  => $src,
+                        'url'  => $media['permalink'] ?? '#',
+                        'alt'  => $caption,
+                    ];
+                }, $medias)));
+
+                if (empty($items)) {
+                    \Illuminate\Support\Facades\Log::info('Instagram API sin resultados', [
+                        'endpoint' => $url,
+                        'count'    => 0,
+                    ]);
+                }
+            } else {
+                \Illuminate\Support\Facades\Log::warning('Instagram API respuesta no OK', [
+                    'status'   => $response->status(),
+                    'endpoint' => $url,
+                    'body'     => $response->body(),
+                ]);
+            }
+        } else {
+            \Illuminate\Support\Facades\Log::warning('Instagram credenciales faltantes', [
+                'has_token' => (bool) $token,
+                'has_id'    => (bool) $id,
+            ]);
+        }
+    } catch (\Throwable $e) {
+        $items = $items ?? [];
+        \Illuminate\Support\Facades\Log::error('Instagram API excepción', [
+            'message' => $e->getMessage(),
+        ]);
+    }
+@endphp
+
 <v-instagram-carousel :items='@json($items)'></v-instagram-carousel>
 
 @pushOnce('scripts')
@@ -11,7 +73,12 @@
             <div class="flex justify-between">
                 <h3 class="font-semibold text-brandNavy text-3xl max-md:text-2xl max-sm:text-xl">@{{ heading }}</h3>
             </div>
+            <div v-if="!items || items.length === 0" class="mt-8 text-center text-brandNavy/70">
+                <p>No hay publicaciones disponibles en este momento.</p>
+            </div>
+
             <div
+                v-else
                 ref="swiperContainer"
                 class="flex gap-3 pb-2.5 mt-10 overflow-auto scroll-smooth scrollbar-hide snap-x snap-mandatory max-md:gap-2 max-sm:gap-2 max-md:mt-4 max-md:pb-0 max-md:whitespace-nowrap"
             >
