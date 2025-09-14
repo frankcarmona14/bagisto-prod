@@ -85,7 +85,7 @@
                 <div
                     v-for="(item, index) in items"
                     :key="index"
-                    class="relative flex-none w-full sm:w-[calc((100%-12px)/2)] md:w-[calc((100%-24px)/3)] lg:w-[calc((100%-36px)/4)] h-96 lg:h-[32rem] rounded-md overflow-hidden snap-start"
+                    class="relative flex-none w-[calc((100%-8px)/2)] sm:w-[calc((100%-12px)/2)] md:w-[calc((100%-24px)/3)] lg:w-[calc((100%-36px)/4)] h-96 lg:h-[32rem] rounded-md overflow-hidden snap-start"
                 >
                     <template v-if="item.type === 'image'">
                         <img
