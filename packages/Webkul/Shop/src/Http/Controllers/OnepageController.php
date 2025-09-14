@@ -80,7 +80,6 @@ class OnepageController extends Controller {
         $whatsAppMessage = config('whatsapp.message');
 
         if (! empty($whatsAppPhone)) {
-            $storeName    = core()->getCurrentChannel()->name ?? config('app.name');
             $customerName = $order->customer_full_name ?? trim(($order->first_name ?? '') . ' ' . ($order->last_name ?? ''));
 
             $grandFormatted = '$' . number_format((float) $order->grand_total, 2, ',', '.') . ' COP';
@@ -93,12 +92,17 @@ class OnepageController extends Controller {
             }
             $itemsList = implode("\n", $itemsLines);
 
+            // Teléfono desde la dirección de facturación/envío o del cliente
+            $phone = $order->billing_address?->phone
+                ?? $order->shipping_address?->phone
+                ?? $order->customer?->phone
+                ?? '';
+
             $replacements = [
-                '{store_name}'    => $storeName,
                 '{order_id}'      => '#' . $order->increment_id,
                 '{total}'         => $grandFormatted,
                 '{customer_name}' => $customerName,
-                '{phone}'         => $order->customer_phone,
+                '{phone}'         => $phone,
                 '{items_list}'    => $itemsList,
             ];
 
@@ -145,8 +149,6 @@ class OnepageController extends Controller {
                 PHP_QUERY_RFC3986
             );
             $url   = 'https://api.whatsapp.com/send?' . $query;
-
-            \Illuminate\Support\Facades\Log::info($url);
 
             return redirect()->away($url);
         }

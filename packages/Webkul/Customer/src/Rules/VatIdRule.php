@@ -5,8 +5,7 @@ namespace Webkul\Customer\Rules;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class VatIdRule implements ValidationRule
-{
+class VatIdRule implements ValidationRule {
     /**
      * The country code from the input form.
      *
@@ -23,11 +22,8 @@ class VatIdRule implements ValidationRule
      *
      * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
      */
-    public function validate(string $attribute, mixed $value, Closure $fail): void
-    {
+    public function validate(string $attribute, mixed $value, Closure $fail): void {
         $validator = new VatValidator;
-
-        \Illuminate\Support\Facades\Log::info("pais: " . $this->country);
 
         if (! empty($value) && ! $validator->validate($value, $this->country)) {
             $fail('customer::app.validations.vat-id.invalid-format')->translate();
@@ -39,8 +35,7 @@ class VatIdRule implements ValidationRule
      *
      * @param  string  $country
      */
-    public function setCountry($country): self
-    {
+    public function setCountry($country): self {
         $this->country = $country;
 
         return $this;
