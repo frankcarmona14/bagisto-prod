@@ -21,7 +21,6 @@
     ]);
 
     $whatsAppPhone   = config('whatsapp.phone');
-    $whatsAppMessage = config('whatsapp.message');
 @endphp
 
 <footer class="mt-9 bg-lightRose max-sm:mt-10">
@@ -61,7 +60,7 @@
             </p>
             <p class="flex justify-center">
                 <a
-                    href="https://wa.me/{{ $whatsAppPhone }}?text={{ rawurlencode($whatsAppMessage) }}"
+                    href="https://wa.me/{{ $whatsAppPhone }}?text=Hola!%20Quiero%20comprar%20un%20producto"
                     target="_blank"
                     rel="noopener"
                     class="flex items-start gap-1"
