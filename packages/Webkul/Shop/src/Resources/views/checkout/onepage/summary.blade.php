@@ -28,6 +28,16 @@
                 @{{ item.name }}
             </p>
 
+            <div v-if="item?.options">
+                <p 
+                    class="mt-0.5 text-sm max-sm:text-[11px] text-zinc-500"
+                    v-for="(option, key) in item.options" 
+                    :key="key"
+                >
+                    @{{ option.attribute_name }}: @{{ option.option_label }}
+                </p>
+            </div>
+
             {!! view_render_event('bagisto.shop.checkout.onepage.summary.item_name.after') !!}
 
             <p class="mt-2.5 flex flex-col text-lg font-medium max-md:mt-1 max-md:text-base max-md:font-normal max-sm:text-sm">

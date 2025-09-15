@@ -218,6 +218,16 @@
                                                 <p class="text-base font-medium max-sm:text-sm">
                                                     @{{ item.name }}
                                                 </p>
+
+                                                <div v-if="item?.options">
+                                                    <p 
+                                                        class="mt-0.5 text-sm max-sm:text-[11px] text-zinc-500"
+                                                        v-for="(option, key) in item.options" 
+                                                        :key="key"
+                                                    >
+                                                        @{{ option.attribute_name }}: @{{ option.option_label }}
+                                                    </p>
+                                                </div>
                                             </a>
 
                                             {!! view_render_event('bagisto.shop.checkout.cart.item_name.after') !!}
@@ -320,7 +330,7 @@
                                                     class="flex max-w-max items-center gap-x-2.5 rounded-[54px] border border-navyBlue px-3.5 py-1.5 max-md:gap-x-1.5 max-md:px-1 max-md:py-0.5"
                                                     name="quantity"
                                                     ::value="item?.quantity"
-                                                    @change="setItemQuantity(item.id, $event)"
+                                                    @change="updateItem($event, item)"
                                                 />
 
                                                 <!-- For Mobile view Remove Button -->
@@ -402,15 +412,6 @@
                                 {!! view_render_event('bagisto.shop.checkout.cart.continue_shopping.after') !!}
 
                                 {!! view_render_event('bagisto.shop.checkout.cart.update_cart.before') !!}
-
-                                <x-shop::button
-                                    class="secondary-button max-h-14 rounded-2xl max-md:rounded-lg max-md:px-6 max-md:py-3 max-md:text-sm max-sm:py-2"
-                                    :title="trans('shop::app.checkout.cart.index.update-cart')"
-                                    ::loading="isStoring"
-                                    ::disabled="isStoring"
-                                    @click="update()"
-                                />
-
                                 {!! view_render_event('bagisto.shop.checkout.cart.update_cart.after') !!}
                             </div>
 
@@ -514,29 +515,33 @@
                         this.allSelected = this.cart.items.every(item => item.selected);
                     },
 
-                    update() {
+                    updateItem(quantity, item) {
                         this.isStoring = true;
 
-                        this.$axios.put('{{ route('shop.api.checkout.cart.update') }}', { qty: this.applied.quantity })
-                            .then(response => {
-                                this.cart = response.data.data;
+                        let qty = {};
 
-                                if (response.data.message) {
-                                    this.$emitter.emit('add-flash', { type: 'success', message: response.data.message });
-                                } else {
-                                    this.$emitter.emit('add-flash', { type: 'warning', message: response.data.data.message });
+                        qty[item.id] = quantity;
+
+                        this.$axios.put('{{ route('shop.api.checkout.cart.update') }}', { qty })
+                            .then(response => {
+                                if (response?.data?.data) {
+                                    this.cart = response.data.data;
+                                    this.$emitter.emit('update-mini-cart', response.data.data);
+                                } else if (response?.data?.message) {
+                                    this.$emitter.emit('add-flash', { type: 'warning', message: response.data.message });
                                 }
 
-                                this.isStoring = false;
-
+                                // Ensure the totals are in sync (fetch fresh cart state)
+                                return this.$axios.get('{{ route('shop.api.checkout.cart.index') }}');
                             })
-                            .catch(error => {
+                            .then(refetch => {
+                                if (refetch?.data?.data) {
+                                    this.cart = refetch.data.data;
+                                }
+                            })
+                            .finally(() => {
                                 this.isStoring = false;
                             });
-                    },
-
-                    setItemQuantity(itemId, quantity) {
-                        this.applied.quantity[itemId] = quantity;
                     },
 
                     removeItem(itemId) {

@@ -105,6 +105,16 @@
                                         <p class="text-base font-medium max-md:font-normal max-sm:text-sm">
                                             @{{ item.name }}
                                         </p>
+
+                                        <div v-if="item?.options">
+                                            <p 
+                                                class="mt-0.5 text-sm max-sm:text-[11px] text-zinc-500"
+                                                v-for="(option, key) in item.options" 
+                                                :key="key"
+                                            >
+                                                @{{ option.attribute_name }}: @{{ option.option_label }}
+                                            </p>
+                                        </div>
                                     </a>
 
                                     {!! view_render_event('bagisto.shop.checkout.mini-cart.drawer.content.name.after') !!}

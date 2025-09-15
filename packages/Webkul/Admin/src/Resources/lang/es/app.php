@@ -219,7 +219,7 @@ return [
                 ],
 
                 'cart' => [
-                    'success-add-to-cart' => 'Producto agregado al carrito correctamente',
+                    'success-add-to-cart' => 'Producto añadido al carrito correctamente',
                     'success-remove'      => 'Elemento eliminado del carrito correctamente',
                     'success-update'      => 'Elemento del carrito actualizado correctamente',
 
@@ -354,7 +354,7 @@ return [
                 'canceled'                       => 'Cancelado',
                 'channel'                        => 'Canal',
                 'closed'                         => 'Cerrado',
-                'comment-success'                => 'Comentario agregado exitosamente.',
+                'comment-success'                => 'Comentario añadido exitosamente.',
                 'comments'                       => 'Comentarios',
                 'completed'                      => 'Completado',
                 'contact'                        => 'Contacto',
@@ -892,7 +892,7 @@ return [
 
                     'cross-sells' => [
                         'empty-info' => 'Agregar productos de venta cruzada sobre la marcha.',
-                        'info'       => 'Junto al carrito de compras, encontrará estos productos de "compra impulsiva" posicionados como productos de venta cruzada para complementar los artículos que ya ha agregado a su carrito.',
+                        'info'       => 'Junto al carrito de compras, encontrará estos productos de "compra impulsiva" posicionados como productos de venta cruzada para complementar los artículos que ya ha añadido a su carrito.',
                         'title'      => 'Productos de venta cruzada',
                     ],
 
@@ -3645,7 +3645,7 @@ return [
                 'name'                             => 'Nombre',
                 'orders'                           => 'Órdenes',
                 'price'                            => 'Precio',
-                'products-added-over-time'         => 'Productos Agregados a lo largo del Tiempo',
+                'products-added-over-time'         => 'Productos Añadidos a lo largo del Tiempo',
                 'products-with-most-reviews'       => 'Productos con Más Reseñas',
                 'products-with-most-visits'        => 'Productos con Más Visitas',
                 'quantities'                       => 'Cantidades',
@@ -3660,7 +3660,7 @@ return [
                 'top-selling-products-by-quantity' => 'Productos Más Vendidos por Cantidad',
                 'top-selling-products-by-revenue'  => 'Productos Más Vendidos por Ingresos',
                 'total'                            => 'Total',
-                'total-products-added-to-wishlist' => 'Productos Agregados a la Lista de Deseos',
+                'total-products-added-to-wishlist' => 'Productos Añadidos a la Lista de Deseos',
                 'total-sold-quantities'            => 'Cantidad de Productos Vendidos',
                 'uses'                             => 'Usos',
                 'view-details'                     => 'Ver Detalles',
@@ -4530,7 +4530,7 @@ return [
 
                     'categories' => [
                         'title'      => 'Categorías de impuestos',
-                        'title-info' => 'Las categorías de impuestos son clasificaciones para diferentes tipos de impuestos, como el impuesto sobre las ventas, el impuesto al valor agregado o el impuesto de consumo, que se utilizan para categorizar y aplicar tasas impositivas a productos o servicios.',
+                        'title-info' => 'Las categorías de impuestos son clasificaciones para diferentes tipos de impuestos, como el impuesto sobre las ventas, el impuesto al valor añadido o el impuesto de consumo, que se utilizan para categorizar y aplicar tasas impositivas a productos o servicios.',
                         'product'    => 'Categoría de impuesto predeterminada del producto',
                         'shipping'   => 'Categoría de impuesto del envío',
                         'none'       => 'Ninguno',

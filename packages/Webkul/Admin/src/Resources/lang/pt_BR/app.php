@@ -4530,7 +4530,7 @@ return [
 
                     'categories' => [
                         'title'      => 'Categorias de Impostos',
-                        'title-info' => 'Categorias de impostos são classificações para diferentes tipos de impostos, como imposto sobre vendas, imposto sobre valor agregado ou imposto sobre produtos, usadas para categorizar e aplicar alíquotas de imposto a produtos ou serviços.',
+                        'title-info' => 'Categorias de impostos são classificações para diferentes tipos de impostos, como imposto sobre vendas, imposto sobre valor añadido ou imposto sobre produtos, usadas para categorizar e aplicar alíquotas de imposto a produtos ou serviços.',
                         'product'    => 'Categoria de Imposto Padrão do Produto',
                         'shipping'   => 'Categoria de Imposto do Envio',
                         'none'       => 'Nenhum',

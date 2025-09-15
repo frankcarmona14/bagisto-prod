@@ -117,14 +117,14 @@ return [
             'addresses' => [
                 'index' => [
                     'add-address'      => 'Agregar Dirección',
-                    'create-success'   => 'La dirección se ha agregado correctamente.',
+                    'create-success'   => 'La dirección se ha añadido correctamente.',
                     'default-address'  => 'Dirección Predeterminada',
                     'default-delete'   => 'No se puede cambiar la dirección predeterminada.',
                     'delete'           => 'Eliminar',
                     'delete-success'   => 'Dirección eliminada correctamente',
                     'edit'             => 'Editar',
                     'edit-success'     => 'Dirección actualizada correctamente.',
-                    'empty-address'    => 'Aún no has agregado una dirección a tu cuenta.',
+                    'empty-address'    => 'Aún no has añadido una dirección a tu cuenta.',
                     'security-warning' => '¡Se ha detectado actividad sospechosa!',
                     'set-as-default'   => 'Establecer como Predeterminada',
                     'title'            => 'Dirección',
@@ -638,7 +638,7 @@ return [
                 'add-to-compare'         => 'Agregar a comparar',
                 'add-to-compare-success' => 'Elemento añadido correctamente a la lista de comparación.',
                 'add-to-wishlist'        => 'Agregar a la lista de deseos',
-                'already-in-compare'     => 'El elemento ya está agregado a la lista de comparación.',
+                'already-in-compare'     => 'El elemento ya está añadido a la lista de comparación.',
                 'new'                    => 'Nuevo',
                 'review-description'     => 'Sé el primero en revisar este producto',
                 'sale'                   => 'Venta',
@@ -924,7 +924,7 @@ return [
             'inactive-add'              => 'El artículo inactivo no se puede Añadir al carrito.',
             'inactive'                  => 'El artículo ha sido desactivado y posteriormente eliminado del carrito.',
             'inventory-warning'         => 'La cantidad solicitada no está disponible, por favor inténtalo de nuevo más tarde.',
-            'item-add-to-cart'          => 'Producto Agregado Exitosamente',
+            'item-add-to-cart'          => 'Producto Añadido Exitosamente',
             'minimum-order-message'     => 'El monto mínimo de la orden es',
             'missing-fields'            => 'Faltan algunos campos obligatorios para este producto.',
             'missing-options'           => 'Faltan opciones para este producto.',
@@ -1286,8 +1286,8 @@ return [
             ],
 
             'commented' => [
-                'subject' => 'Nuevo comentario agregado',
-                'title'   => 'Nuevo comentario agregado a su pedido :order_id, realizado el :created_at',
+                'subject' => 'Nuevo comentario añadido',
+                'title'   => 'Nuevo comentario añadido a su pedido :order_id, realizado el :created_at',
             ],
 
             'billing-address'            => 'Dirección de facturación',
