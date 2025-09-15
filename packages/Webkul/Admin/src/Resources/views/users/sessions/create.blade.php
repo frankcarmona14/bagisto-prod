@@ -21,7 +21,7 @@
                 />
             @endif
 
-            <div class="box-shadow flex min-w-[300px] flex-col rounded-md bg-white dark:bg-gray-900">
+            <div class="box-shadow flex w-[300px] max-w-[300px] flex-col rounded-md bg-white dark:bg-gray-900">
                 <!-- Login Form -->
                 <x-admin::form :action="route('admin.session.store')">
                     <p class="p-4 text-xl font-bold text-gray-800 dark:text-white">
@@ -30,14 +30,14 @@
 
                     <div class="border-y p-4 dark:border-gray-800">
                         <!-- Email -->
-                        <x-admin::form.control-group>
+                        <x-admin::form.control-group class="w-[254px] max-w-[300px]">
                             <x-admin::form.control-group.label class="required">
                                 @lang('admin::app.users.sessions.email')
                             </x-admin::form.control-group.label>
 
                             <x-admin::form.control-group.control 
                                 type="email" 
-                                class="w-[254px] max-w-full" 
+                                class="w-[254px] max-w-[300px]" 
                                 id="email"
                                 name="email" 
                                 rules="required|email" 
@@ -49,14 +49,14 @@
                         </x-admin::form.control-group>
 
                         <!-- Password -->
-                        <x-admin::form.control-group class="relative w-full">
+                        <x-admin::form.control-group class="relative w-[254px] max-w-[254px]">
                             <x-admin::form.control-group.label class="required">
                                 @lang('admin::app.users.sessions.password')
                             </x-admin::form.control-group.label>
                     
                             <x-admin::form.control-group.control 
                                 type="password" 
-                                class="w-[254px] max-w-full ltr:pr-10 rtl:pl-10" 
+                                class="w-[254px] max-w-[254px] ltr:pr-10 rtl:pl-10" 
                                 id="password"
                                 name="password" 
                                 rules="required|min:6" 
