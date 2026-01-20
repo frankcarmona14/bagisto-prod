@@ -4112,6 +4112,7 @@ return [
                         'max-qty-allowed-in-cart' => 'Maximum Qty Allowed in Shopping Cart',
                         'min-qty-allowed-in-cart' => 'Minimum Qty Allowed in Shopping Cart',
                         'out-of-stock-threshold'  => 'Out-of-Stock Threshold',
+                        'hide-out-of-stock'       => 'Hide Out of Stock Products',
                         'title'                   => 'Product Stock Option',
                         'info'                    => 'Configure product stock options to allow back orders, set minimum and maximum cart quantities, and define out-of-stock thresholds.',
                     ],

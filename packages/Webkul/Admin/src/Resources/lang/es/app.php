@@ -4112,6 +4112,7 @@ return [
                         'max-qty-allowed-in-cart' => 'Cantidad máxima permitida en el carrito de compras',
                         'min-qty-allowed-in-cart' => 'Cantidad mínima permitida en el carrito de compras',
                         'out-of-stock-threshold'  => 'Umbral de falta de stock',
+                        'hide-out-of-stock'       => 'Ocultar productos sin stock',
                         'title'                   => 'Opción de stock de producto',
                         'info'                    => 'Configurar opciones de stock de productos para permitir pedidos pendientes, establecer cantidades mínimas y máximas en el carrito y definir umbrales de falta de stock.',
                     ],
