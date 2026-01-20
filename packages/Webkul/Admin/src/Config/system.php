@@ -1142,6 +1142,13 @@ return [
                 'type'          => 'number',
                 'default'       => '0',
             ],
+            [
+                'name'          => 'hide_out_of_stock',
+                'title'         => 'admin::app.configuration.index.catalog.inventory.product-stock-options.hide-out-of-stock',
+                'type'          => 'boolean',
+                'default'       => false,
+                'channel_based' => true,
+            ],
         ],
     ],
 
