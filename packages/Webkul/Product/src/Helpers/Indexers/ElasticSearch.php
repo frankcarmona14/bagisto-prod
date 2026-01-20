@@ -296,6 +296,15 @@ class ElasticSearch extends AbstractIndexer
             }
         }
 
+        /**
+         * Add inventory quantity to the index for stock filtering.
+         */
+        $inventoryIndex = $this->product->inventory_indices
+            ->where('channel_id', $this->channel->id)
+            ->first();
+
+        $properties['inventory_qty'] = $inventoryIndex ? (int) $inventoryIndex->qty : 0;
+
         return $properties;
     }
 

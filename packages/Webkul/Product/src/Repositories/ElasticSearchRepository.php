@@ -44,6 +44,18 @@ class ElasticSearchRepository
             $filters['filter'][]['term']['type'] = $params['type'];
         }
 
+        /**
+         * Filter out of stock products if configured.
+         */
+        if (core()->getConfigData('catalog.inventory.stock_options.hide_out_of_stock')) {
+            $outOfStockThreshold = (int) core()->getConfigData('catalog.inventory.stock_options.out_of_stock_threshold') ?? 0;
+
+            $filters['filter'][]['bool']['should'] = [
+                ['range' => ['inventory_qty' => ['gt' => $outOfStockThreshold]]],
+                ['terms' => ['type' => ['configurable', 'grouped', 'bundle', 'downloadable', 'booking']]],
+            ];
+        }
+
         $results = Elasticsearch::search([
             'index' => $params['index'] ?? $this->getIndexName(),
             'body'  => [
