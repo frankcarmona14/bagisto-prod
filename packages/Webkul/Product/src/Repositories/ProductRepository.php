@@ -263,6 +263,23 @@ class ProductRepository extends Repository
                     ->where('product_channels.channel_id', explode(',', $params['channel_id']));
             }
 
+            /**
+             * Filter out of stock products if configured.
+             */
+            if (core()->getConfigData('catalog.inventory.stock_options.hide_out_of_stock')) {
+                $outOfStockThreshold = (int) core()->getConfigData('catalog.inventory.stock_options.out_of_stock_threshold') ?? 0;
+                $channelId = $params['channel_id'] ?? core()->getCurrentChannel()->id;
+
+                $qb->leftJoin('product_inventory_indices', function ($join) use ($channelId) {
+                    $join->on('products.id', '=', 'product_inventory_indices.product_id')
+                        ->where('product_inventory_indices.channel_id', $channelId);
+                })
+                    ->where(function ($subQuery) use ($outOfStockThreshold) {
+                        $subQuery->where('product_inventory_indices.qty', '>', $outOfStockThreshold)
+                            ->orWhereIn('products.type', ['configurable', 'grouped', 'bundle', 'downloadable', 'booking']);
+                    });
+            }
+
             if (! empty($params['type'])) {
                 $qb->where('products.type', $params['type']);
 
