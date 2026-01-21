@@ -9,6 +9,7 @@ return [
 
             'invalid-file-extension'   => 'Extensión de archivo no válida encontrada.',
             'inventory-warning'        => 'La cantidad solicitada no está disponible, por favor, inténtelo de nuevo más tarde.',
+            'inventory-warning-qty'    => 'Solo hay :qty unidad(es) disponible(s) en stock.',
             'missing-links'            => 'Faltan enlaces descargables para este producto.',
             'missing-options'          => 'Faltan opciones para este producto.',
             'selected-products-simple' => 'Los productos seleccionados deben ser del tipo de producto simple.',

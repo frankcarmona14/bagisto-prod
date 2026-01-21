@@ -9,6 +9,7 @@ return [
 
             'invalid-file-extension'   => 'Invalid file extension found.',
             'inventory-warning'        => 'The requested quantity is not available, please try again later.',
+            'inventory-warning-qty'    => 'Only :qty item(s) available in stock.',
             'missing-links'            => 'Downloadable links are missing for this product.',
             'missing-options'          => 'Options are missing for this product.',
             'selected-products-simple' => 'Selected products must be of simple product type.',
