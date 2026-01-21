@@ -219,6 +219,12 @@ class Virtual extends AbstractType
         $data = $this->getQtyRequest($data);
 
         if (! $this->haveSufficientQuantity($data['quantity'])) {
+            $availableQty = $this->totalQuantity();
+
+            if ($availableQty > 0) {
+                return trans('product::app.checkout.cart.inventory-warning-qty', ['qty' => $availableQty]);
+            }
+
             return trans('product::app.checkout.cart.inventory-warning');
         }
 

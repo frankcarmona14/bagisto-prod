@@ -237,6 +237,12 @@ class Bundle extends AbstractType
         }
 
         if (! $this->haveSufficientQuantity($data['quantity'])) {
+            $availableQty = $this->totalQuantity();
+
+            if ($availableQty > 0) {
+                return trans('product::app.checkout.cart.inventory-warning-qty', ['qty' => $availableQty]);
+            }
+
             return trans('product::app.checkout.cart.inventory-warning');
         }
 
@@ -251,6 +257,12 @@ class Bundle extends AbstractType
 
             /* need to check each individual quantity as well if don't have then show error */
             if (! $product->getTypeInstance()->haveSufficientQuantity($data['quantity'] * $bundleQuantity)) {
+                $availableQty = $product->getTypeInstance()->totalQuantity();
+
+                if ($availableQty > 0) {
+                    return trans('product::app.checkout.cart.inventory-warning-qty', ['qty' => $availableQty]);
+                }
+
                 return trans('product::app.checkout.cart.inventory-warning');
             }
 
